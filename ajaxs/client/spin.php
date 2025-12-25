@@ -21,7 +21,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (time() - $getUser['time_request'] < $config['max_time_load']) {
         die(json_encode(['status' => 'error', 'msg' => __('Bạn đang thao tác quá nhanh, vui lòng chờ')]));
     }
-    if ($getUser['spin'] < 1) {
+    // START TRANSACTION
+    $CMSNT->beginTransaction();
+    
+    // ATOMIC DEDUCTION (Prevent negative spins)
+    $isTru = $CMSNT->tru("users", "spin", 1, " `id` = '".$getUser['id']."' AND `spin` > 0 ");
+    if (!$isTru || $CMSNT->getAffectedRows() == 0) {
+        $CMSNT->rollBack();
         die(json_encode(['status' => 'error', 'msg' => __('Số lượt quay hiện tại của bạn đã hết')]));
     }
     $CMSNT->update("users", [
@@ -36,8 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $price[] = $row['price'];
     }
     $out = getRandomWeightedElement($tile);
-    $isTru = $CMSNT->tru("users", "spin", 1, " `id` = '".$getUser['id']."' ");
-    if ($isTru) {
+    // REMOVED unsafe deduction here because we did it atomically above
+    if (true) {
         $isCong = $User->AddCredits($getUser['id'], $price[$out], $label[$out]);
         if ($isCong) {
             $CMSNT->insert("spin_history", [
@@ -49,5 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
     //echo json_encode($data);
+    // COMMIT TRANSACTION
+    $CMSNT->commit();
     die(json_encode(['location' => $out + 1, 'status' => 'success', 'msg' => $label[$out]]));
 }

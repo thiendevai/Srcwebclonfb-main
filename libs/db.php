@@ -129,5 +129,25 @@ class DB
         }
         return false;
     }
+    public function beginTransaction()
+    {
+        $this->connect();
+        mysqli_begin_transaction($this->ketnoi);
+    }
+    public function commit()
+    {
+        $this->connect();
+        mysqli_commit($this->ketnoi);
+    }
+    public function rollBack()
+    {
+        $this->connect();
+        mysqli_rollback($this->ketnoi);
+    }
+    public function getAffectedRows() 
+    {
+        $this->connect();
+        return mysqli_affected_rows($this->ketnoi);
+    }
 }
 
