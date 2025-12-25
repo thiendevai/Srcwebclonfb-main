@@ -29,6 +29,14 @@
     <link rel="stylesheet" href="<?=BASE_URL('public/AdminLTE3/');?>plugins/summernote/summernote-bs4.css">
     <!-- Daterange picker -->
     <link rel="stylesheet" href="<?=BASE_URL('public/AdminLTE3/');?>plugins/daterangepicker/daterangepicker.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="<?=BASE_URL('public/AdminLTE3/');?>plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+     <!-- overlayScrollbars -->
+     <link rel="stylesheet" href="<?=BASE_URL('public/AdminLTE3/');?>plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="<?=BASE_URL('public/AdminLTE3/');?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?=BASE_URL('public/AdminLTE3/');?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?=BASE_URL('public/AdminLTE3/');?>plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- Sparkline -->
     <script src="<?=BASE_URL('public/AdminLTE3/');?>plugins/sparklines/sparkline.js"></script>
     <!-- jQuery -->

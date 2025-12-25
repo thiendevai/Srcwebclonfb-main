@@ -717,7 +717,7 @@
 <!-- slider JavaScript -->
 <script src="<?= BASE_URL('public/datum'); ?>/assets/js/slider.js"></script>
 <!-- Emoji picker -->
-<script src="<?= BASE_URL('public/datum'); ?>/assets/vendor/emoji-picker-element/index.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js" type="module"></script>
 <!-- app JavaScript -->
 <script src="<?= BASE_URL('public/datum'); ?>/assets/js/app.js"></script>
 <?= $body['footer']; ?>
