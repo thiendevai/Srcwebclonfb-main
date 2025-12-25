@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="<?=BASE_URL('resources');?>/css/responsive.css">
     <link rel="stylesheet" href="<?=BASE_URL('resources');?>/css/backend.css?v=1.0.0">
     <link rel="stylesheet" href="<?=BASE_URL('resources');?>/css/customize.css">
-    <script src="<?=BASE_URL('resources');?>/js/jquery.js"></script>
+    <script src="<?=BASE_URL('resources');?>/js/smooth-scroll.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
